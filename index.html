@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mahathi Bala Satyawada | Data & Business Analyst</title>
+<meta name="description" content="Data & Business Analyst | MSc Business Analytics & Big Data | Power BI · SQL · Python · Tableau | Liverpool, UK"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ff-body:'Inter',system-ui,sans-serif;
+  --ff-display:'Instrument Serif',Georgia,serif;
+  --c-bg:#f8f7f4;
+  --c-surface:#ffffff;
+  --c-surface2:#f2f1ee;
+  --c-border:rgba(17,24,39,.1);
+  --c-divider:rgba(17,24,39,.07);
+  --c-text:#0f172a;
+  --c-muted:#4b5563;
+  --c-faint:#9ca3af;
+  /* Accent palette */
+  --c-teal:#0c7a6b;
+  --c-teal-soft:rgba(12,122,107,.1);
+  --c-violet:#6d28d9;
+  --c-violet-soft:rgba(109,40,217,.09);
+  --c-amber:#d97706;
+  --c-amber-soft:rgba(217,119,6,.1);
+  --c-rose:#e11d48;
+  --c-rose-soft:rgba(225,29,72,.09);
+  --c-blue:#1d4ed8;
+  --c-blue-soft:rgba(29,78,216,.09);
+  --shadow:0 20px 60px rgba(15,23,42,.07);
+  --shadow-sm:0 4px 16px rgba(15,23,42,.06);
+  --r-card:1.25rem;
+  --r-btn:999px;
+  --content:1160px;
+  --tr:200ms cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--ff-body);background:var(--c-bg);color:var(--c-text);line-height:1.65;font-size:clamp(1rem,.95rem + .25vw,1.125rem)}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+p{max-width:72ch;color:var(--c-muted)}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(16px);background:rgba(248,247,244,.88);border-bottom:1px solid var(--c-divider)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;min-height:70px;width:min(100% - 2rem,var(--content));margin:0 auto;gap:1rem}
+.brand{display:flex;align-items:center;gap:.8rem;font-weight:700;font-size:.95rem}
+.brand-mark{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--c-teal),var(--c-violet));color:#fff;display:grid;place-items:center;font-size:.8rem;letter-spacing:.03em;flex-shrink:0}
+.brand-sub{font-size:.72rem;color:var(--c-muted);margin-top:.1rem}
+.nav-links{display:flex;gap:1.1rem;flex-wrap:wrap;font-size:.875rem;color:var(--c-muted)}
+.nav-links a{transition:color var(--tr);padding:.2rem 0;border-bottom:2px solid transparent}
+.nav-links a:hover,.nav-links a.active{color:var(--c-text);border-bottom-color:var(--c-teal)}
+
+/* LAYOUT */
+.wrap{width:min(100% - 2rem,var(--content));margin:0 auto}
+.section{padding:clamp(3.5rem,8vw,6rem) 0}
+.section-head{display:grid;grid-template-columns:.9fr 1.1fr;gap:2rem;align-items:end;margin-bottom:2.5rem}
+.eyebrow{display:inline-flex;align-items:center;padding:.42rem .8rem;border-radius:var(--r-btn);border:1px solid var(--c-border);background:var(--c-surface);font-size:.75rem;color:var(--c-muted);letter-spacing:.03em;margin-bottom:.75rem}
+.section-title{font-family:var(--ff-display);font-size:clamp(2rem,1.2rem + 2.5vw,3.5rem);line-height:1.02}
+.section-desc{color:var(--c-muted)}
+
+/* GRADIENT ACCENT BLOCKS */
+.grad-teal{background:linear-gradient(135deg,rgba(12,122,107,.12) 0%,rgba(12,122,107,.04) 100%)}
+.grad-violet{background:linear-gradient(135deg,rgba(109,40,217,.1) 0%,rgba(109,40,217,.03) 100%)}
+.grad-amber{background:linear-gradient(135deg,rgba(217,119,6,.1) 0%,rgba(217,119,6,.03) 100%)}
+
+/* CARDS */
+.card{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r-card);box-shadow:var(--shadow-sm);padding:1.4rem;transition:transform var(--tr),box-shadow var(--tr)}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.card h3{font-size:1.05rem;margin-bottom:.75rem}
+
+/* GRIDS */
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem}
+
+/* HERO */
+.hero{padding:clamp(4rem,9vw,7rem) 0 3.5rem;background:linear-gradient(170deg,#fff 0%,#f0faf8 45%,#f5f0ff 100%)}
+.hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:1.75rem;align-items:stretch}
+.hero-copy{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r-card);box-shadow:var(--shadow);padding:clamp(1.75rem,3vw,2.75rem)}
+h1{font-family:var(--ff-display);font-size:clamp(2.5rem,1rem + 4vw,5rem);line-height:.94;letter-spacing:-.03em;margin:.85rem 0 1.15rem;max-width:12ch}
+.lead{font-size:clamp(1.05rem,.95rem + .45vw,1.35rem);color:var(--c-muted);max-width:52ch}
+.hero-btns{display:flex;gap:.85rem;flex-wrap:wrap;margin-top:1.65rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:48px;padding:.75rem 1.3rem;border-radius:var(--r-btn);font-size:.875rem;font-weight:600;border:1.5px solid var(--c-border);transition:all var(--tr);cursor:pointer}
+.btn-primary{background:linear-gradient(135deg,var(--c-teal),var(--c-violet));color:#fff;border:none}
+.btn-primary:hover{opacity:.9;transform:translateY(-1px)}
+.btn-outline:hover{background:var(--c-surface2);transform:translateY(-1px)}
+.kpi-strip{display:grid;grid-template-columns:repeat(2,1fr);gap:.85rem;margin-top:1.65rem}
+.kpi{padding:.95rem 1rem;border-radius:1rem;border:1px solid rgba(17,24,39,.07);transition:transform var(--tr)}
+.kpi:nth-child(1){background:linear-gradient(135deg,rgba(12,122,107,.12),rgba(12,122,107,.04))}
+.kpi:nth-child(2){background:linear-gradient(135deg,rgba(109,40,217,.1),rgba(109,40,217,.04))}
+.kpi:nth-child(3){background:linear-gradient(135deg,rgba(217,119,6,.1),rgba(217,119,6,.04))}
+.kpi:nth-child(4){background:linear-gradient(135deg,rgba(29,78,216,.09),rgba(29,78,216,.03))}
+.kpi:hover{transform:translateY(-2px)}
+.kpi strong{display:block;font-size:1.55rem;line-height:1;margin-bottom:.35rem;letter-spacing:-.02em}
+.kpi span{font-size:.8rem;color:var(--c-muted)}
+.hero-side{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r-card);box-shadow:var(--shadow);padding:1.5rem;display:flex;flex-direction:column;gap:1.2rem}
+.side-block+.side-block{border-top:1px solid var(--c-divider);padding-top:1.2rem}
+.lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--c-faint);margin-bottom:.45rem}
+.side-title{font-size:1rem;font-weight:700;margin-bottom:.3rem}
+.side-text{font-size:.875rem;color:var(--c-muted)}
+.open-badge{display:inline-flex;align-items:center;gap:.45rem;background:rgba(22,163,74,.12);color:#15803d;border-radius:var(--r-btn);padding:.38rem .75rem;font-size:.75rem;font-weight:600}
+.open-dot{width:7px;height:7px;border-radius:50%;background:#16a34a;animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* SKILLS */
+.skill-cat{border-radius:var(--r-card);border:1px solid var(--c-border);padding:1.5rem;box-shadow:var(--shadow-sm);transition:transform var(--tr),box-shadow var(--tr)}
+.skill-cat:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.skill-cat:nth-child(1){background:linear-gradient(160deg,#fff 0%,rgba(12,122,107,.07) 100%)}
+.skill-cat:nth-child(2){background:linear-gradient(160deg,#fff 0%,rgba(109,40,217,.07) 100%)}
+.skill-cat:nth-child(3){background:linear-gradient(160deg,#fff 0%,rgba(217,119,6,.07) 100%)}
+.skill-cat h3{font-size:1rem;margin-bottom:.9rem}
+.pill{display:inline-flex;padding:.48rem .8rem;border-radius:var(--r-btn);font-size:.8rem;font-weight:600}
+.pill-teal{background:var(--c-teal-soft);color:var(--c-teal)}
+.pill-violet{background:var(--c-violet-soft);color:var(--c-violet)}
+.pill-amber{background:var(--c-amber-soft);color:var(--c-amber)}
+.pill-group{display:flex;flex-wrap:wrap;gap:.55rem}
+.tool-tag{display:inline-flex;padding:.38rem .68rem;border-radius:var(--r-btn);font-size:.78rem;background:var(--c-surface2);color:var(--c-muted);border:1px solid rgba(17,24,39,.07)}
+
+/* PROJECTS TABS */
+.proj-tabs{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.75rem}
+.proj-tab{padding:.6rem 1.2rem;border-radius:var(--r-btn);font-size:.85rem;font-weight:600;border:1.5px solid var(--c-border);background:var(--c-surface);cursor:pointer;transition:all var(--tr);color:var(--c-muted)}
+.proj-tab.active,.proj-tab:hover{background:var(--c-text);color:#fff;border-color:var(--c-text)}
+.proj-panel{display:none}
+.proj-panel.active{display:grid;gap:1.25rem}
+
+/* CASE CARDS */
+.case-card{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r-card);box-shadow:var(--shadow);padding:1.75rem;display:grid;gap:1.3rem;animation:fadeUp .35s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.case-top{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:start}
+.case-tags{display:flex;gap:.5rem;flex-wrap:wrap}
+.case-tag{display:inline-flex;padding:.35rem .6rem;border-radius:var(--r-btn);background:var(--c-surface2);font-size:.75rem;color:var(--c-muted);border:1px solid var(--c-border)}
+.case-accent-tag{background:var(--c-teal-soft);color:var(--c-teal);border-color:rgba(12,122,107,.2)}
+.case-title{font-size:1.45rem;font-weight:700;line-height:1.2;margin-top:.55rem}
+.case-body{font-size:.9rem;color:var(--c-muted);max-width:80ch}
+.case-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:.85rem}
+.ckpi{padding:.9rem 1rem;border-radius:1rem;border:1px solid var(--c-divider)}
+.ckpi:nth-child(1){background:linear-gradient(135deg,rgba(12,122,107,.1),rgba(12,122,107,.04))}
+.ckpi:nth-child(2){background:linear-gradient(135deg,rgba(109,40,217,.08),rgba(109,40,217,.03))}
+.ckpi:nth-child(3){background:linear-gradient(135deg,rgba(217,119,6,.09),rgba(217,119,6,.03))}
+.ckpi:nth-child(4){background:linear-gradient(135deg,rgba(29,78,216,.08),rgba(29,78,216,.03))}
+.ckpi strong{display:block;font-size:1.2rem;margin-bottom:.25rem;letter-spacing:-.01em}
+.ckpi span{font-size:.78rem;color:var(--c-muted)}
+.case-sections{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.cs-block{padding:1rem;background:var(--c-surface2);border-radius:.85rem}
+.sub-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--c-faint);margin-bottom:.4rem}
+.case-links{display:flex;gap:.8rem;flex-wrap:wrap}
+.case-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--c-teal);font-size:.85rem;font-weight:600;padding:.5rem .9rem;border-radius:var(--r-btn);background:var(--c-teal-soft);transition:all var(--tr)}
+.case-link:hover{background:var(--c-teal);color:#fff}
+
+/* TIMELINE */
+.tl-stack{display:grid;gap:1rem}
+.tl-item{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r-card);box-shadow:var(--shadow-sm);padding:1.5rem;display:grid;grid-template-columns:200px 1fr;gap:1.5rem;transition:transform var(--tr),box-shadow var(--tr)}
+.tl-item:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.tl-date{font-size:.82rem;color:var(--c-faint);padding-top:.15rem}
+.tl-company-badge{display:inline-flex;padding:.3rem .65rem;border-radius:var(--r-btn);font-size:.72rem;font-weight:700;margin-bottom:.5rem}
+.badge-teal{background:var(--c-teal-soft);color:var(--c-teal)}
+.badge-violet{background:var(--c-violet-soft);color:var(--c-violet)}
+.badge-amber{background:var(--c-amber-soft);color:var(--c-amber)}
+.tl-role{font-size:1.05rem;font-weight:700;margin-bottom:.2rem}
+.tl-co{font-size:.875rem;color:var(--c-muted);margin-bottom:.75rem}
+.tl-bullets{display:grid;gap:.6rem}
+.tl-bullets li{padding-left:1.1rem;position:relative;font-size:.875rem;color:var(--c-muted);list-style:none}
+.tl-bullets li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--c-teal);position:absolute;left:0;top:.62rem}
+.tl-highlight{color:var(--c-teal);font-weight:700}
+
+/* EDUCATION */
+.edu-card{border-left:3px solid transparent}
+.edu-card.teal{border-left-color:var(--c-teal)}
+.edu-card.violet{border-left-color:var(--c-violet)}
+.edu-card .deg{font-weight:700;font-size:1.05rem;margin-bottom:.25rem}
+.cert-list{display:grid;gap:.5rem}
+.cert-item{display:flex;align-items:baseline;gap:.55rem;font-size:.875rem;color:var(--c-muted)}
+.cert-dot{width:6px;height:6px;border-radius:50%;background:var(--c-violet);flex-shrink:0;margin-top:.38rem}
+
+/* EXTRAS */
+.extra-card{padding:1.25rem}
+.extra-card .card-icon{font-size:1.5rem;margin-bottom:.75rem}
+.extra-card h3{font-size:.95rem;font-weight:700;margin-bottom:.65rem}
+.extra-list{display:grid;gap:.45rem}
+.extra-list li{font-size:.85rem;color:var(--c-muted);list-style:none;padding-left:1rem;position:relative}
+.extra-list li::before{content:'·';position:absolute;left:0;color:var(--c-amber);font-weight:700;font-size:1.1rem}
+
+/* CONTACT */
+.contact-wrap{background:linear-gradient(160deg,#fff 0%,#edfaf7 45%,#f0eeff 100%);border:1px solid var(--c-border);border-radius:calc(var(--r-card)*1.5);box-shadow:var(--shadow);padding:clamp(2rem,5vw,4rem);text-align:center;max-width:860px;margin:0 auto}
+.contact-wrap .section-title{margin:.75rem auto 1rem;max-width:24ch}
+.contact-wrap p{margin:0 auto 1.75rem;max-width:58ch}
+.contact-links{display:flex;gap:.85rem;flex-wrap:wrap;justify-content:center}
+.contact-btn{display:inline-flex;align-items:center;gap:.5rem;min-height:48px;padding:.75rem 1.3rem;border-radius:var(--r-btn);font-size:.875rem;font-weight:600;border:1.5px solid var(--c-border);transition:all var(--tr);background:var(--c-surface)}
+.contact-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.contact-btn-primary{background:linear-gradient(135deg,var(--c-teal),var(--c-violet));color:#fff;border:none}
+.contact-btn-primary:hover{opacity:.9}
+
+/* CLOSING */
+.closing{padding:4rem 0 5.5rem;background:linear-gradient(170deg,#fff 0%,#f0faf8 50%,#f5f0ff 100%)}
+.closing-inner{max-width:760px;margin:0 auto;text-align:center}
+.closing-text{font-family:var(--ff-display);font-size:clamp(1.7rem,.8rem + 2.8vw,3rem);line-height:1.1;margin:.6rem 0 1.3rem;font-style:italic}
+.closing-sub{color:var(--c-muted);font-size:clamp(.9rem,.8rem + .3vw,1.1rem);max-width:60ch;margin:0 auto 1.5rem}
+
+footer{padding:1.2rem 0 2.5rem;border-top:1px solid var(--c-divider)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;font-size:.8rem;color:var(--c-faint)}
+.footer-links{display:flex;gap:1rem}
+.footer-links a:hover{color:var(--c-text)}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:960px){
+  .hero-grid,.g2,.g3,.g4,.section-head,.case-kpis,.case-sections,.extras-grid{grid-template-columns:1fr}
+  .tl-item{grid-template-columns:1fr}
+  .kpi-strip{grid-template-columns:repeat(2,1fr)}
+  .case-top{grid-template-columns:1fr}
+  h1{max-width:100%}
+}
+@media(max-width:600px){
+  .kpi-strip{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-mark">MBS</div>
+      <div>
+        <div>Mahathi Bala Satyawada</div>
+        <div class="brand-sub">Data &amp; Business Analyst · Liverpool, UK</div>
+      </div>
+    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">MSc Business Analytics &amp; Big Data · Power BI · SQL · Python · Tableau</span>
+        <h1>Data that drives decisions. Insight that drives outcomes.</h1>
+        <p class="lead">I turn complex, messy data into clear, validated, and decision-ready outputs — combining MSc-level analytical training with real commercial insurance experience.</p>
+        <div class="hero-btns">
+          <a class="btn btn-primary" href="#projects">View my work ↓</a>
+          <a class="btn btn-outline" href="mailto:mahibala9@gmail.com">Get in touch</a>
+        </div>
+        <div class="kpi-strip">
+          <div class="kpi"><strong>98%</strong><span>data accuracy in commercial insurance policy records</span></div>
+          <div class="kpi"><strong>95%</strong><span>accuracy on risk Bordeaux records within 5-day SLA</span></div>
+          <div class="kpi"><strong>3.8/5</strong><span>governance score — public-sector data quality audit</span></div>
+          <div class="kpi"><strong>1+ yr</strong><span>professional analytics in a regulated environment</span></div>
+        </div>
+      </div>
+      <aside class="hero-side">
+        <div class="side-block">
+          <div class="open-badge"><span class="open-dot"></span>Open to opportunities</div>
+          <div class="side-title" style="margin-top:.65rem">Targeting Data Analyst &amp; Business Analyst roles</div>
+          <div class="side-text">Actively seeking roles where I can apply analytical rigour, drive reporting improvements, and deliver measurable business value.</div>
+        </div>
+        <div class="side-block">
+          <div class="lbl">Core strengths</div>
+          <div class="side-text">Data validation &amp; quality · Power BI reporting · SQL &amp; Python analytics · Business process improvement · Insurance domain knowledge · Stakeholder communication</div>
+        </div>
+        <div class="side-block">
+          <div class="lbl">Location</div>
+          <div class="side-text">Liverpool, UK · Available for on-site, hybrid, or remote roles</div>
+        </div>
+        <div class="side-block">
+          <div class="lbl">Education</div>
+          <div class="side-text"><strong>MSc Business Analytics &amp; Big Data</strong><br>University of Liverpool · Merit scholarship recipient</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">About me</div>
+        <h2 class="section-title">Analytical. Meticulous. Business-focused.</h2>
+      </div>
+      <p class="section-desc">A data professional with Level 7 qualifications in Business Analytics &amp; Big Data and over a year of hands-on experience at Pro Global — a commercial insurance firm — combining technical depth with commercial awareness to turn raw data into reliable business insight.</p>
+    </div>
+    <div class="g2">
+      <div class="card reveal">
+        <h3>What I deliver</h3>
+        <div style="display:grid;gap:.65rem">
+          <div style="padding-left:1.1rem;position:relative;font-size:.9rem;color:var(--c-muted)"><span style="position:absolute;left:0;color:var(--c-teal);font-weight:700">→</span>Validated, high-accuracy data that teams can build decisions on — not just dashboards that look good.</div>
+          <div style="padding-left:1.1rem;position:relative;font-size:.9rem;color:var(--c-muted)"><span style="position:absolute;left:0;color:var(--c-teal);font-weight:700">→</span>Structured reporting and operational tracking using Power BI, Excel, and integrated business systems.</div>
+          <div style="padding-left:1.1rem;position:relative;font-size:.9rem;color:var(--c-muted)"><span style="position:absolute;left:0;color:var(--c-teal);font-weight:700">→</span>Clear, concise communication of findings to both technical teams and non-technical stakeholders.</div>
+          <div style="padding-left:1.1rem;position:relative;font-size:.9rem;color:var(--c-muted)"><span style="position:absolute;left:0;color:var(--c-teal);font-weight:700">→</span>Governance-aware thinking — I challenge data assumptions before they become costly downstream errors.</div>
+        </div>
+      </div>
+      <div class="card reveal">
+        <h3>Why I stand out</h3>
+        <div style="display:grid;gap:.65rem">
+          <div style="padding-left:1.1rem;position:relative;font-size:.9rem;color:var(--c-muted)"><span style="position:absolute;left:0;color:var(--c-violet);font-weight:700">→</span>Real-world accuracy standards: 95–98% maintained under SLA pressure in live commercial insurance operations.</div>
+          <div style="padding-left:1.1rem;position:relative;font-size:.9rem;color:var(--c-muted)"><span style="position:absolute;left:0;color:var(--c-violet);font-weight:700">→</span>Cross-functional background spanning insurance, HRMS research, sales analytics, and academic research.</div>
+          <div style="padding-left:1.1rem;position:relative;font-size:.9rem;color:var(--c-muted)"><span style="position:absolute;left:0;color:var(--c-violet);font-weight:700">→</span>Certified in Google Advanced Data Analytics and AI Fluency — relevant, up-to-date credentials.</div>
+          <div style="padding-left:1.1rem;position:relative;font-size:.9rem;color:var(--c-muted)"><span style="position:absolute;left:0;color:var(--c-violet);font-weight:700">→</span>Scholar: awarded the Vice-Chancellor's International Attainment Scholarship for academic excellence.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills" style="background:linear-gradient(180deg,var(--c-bg) 0%,#fff 100%)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Skills</div>
+        <h2 class="section-title">Tools, techniques, capabilities.</h2>
+      </div>
+      <p class="section-desc">A toolkit spanning the full analytics workflow — from data extraction and validation through to reporting, stakeholder delivery, and business process improvement.</p>
+    </div>
+    <div class="g3">
+      <div class="skill-cat reveal">
+        <h3>🔍 Data &amp; Analytics</h3>
+        <div class="pill-group">
+          <span class="pill pill-teal">Power BI</span>
+          <span class="pill pill-teal">SQL</span>
+          <span class="pill pill-teal">Python</span>
+          <span class="pill pill-teal">Tableau</span>
+          <span class="pill pill-teal">Excel</span>
+          <span class="pill pill-teal">R</span>
+          <span class="pill pill-teal">Data Validation</span>
+          <span class="pill pill-teal">Data Quality Auditing</span>
+          <span class="pill pill-teal">Google BigQuery</span>
+        </div>
+      </div>
+      <div class="skill-cat reveal">
+        <h3>⚙️ Business &amp; Domain Tools</h3>
+        <div class="pill-group">
+          <span class="pill pill-violet">Microsoft Dynamics</span>
+          <span class="pill pill-violet">Intrali</span>
+          <span class="pill pill-violet">Eclipse (Insurance)</span>
+          <span class="pill pill-violet">CRM HubSpot</span>
+          <span class="pill pill-violet">Google Analytics</span>
+          <span class="pill pill-violet">SAP Sales &amp; Distribution</span>
+        </div>
+      </div>
+      <div class="skill-cat reveal">
+        <h3>💡 Functional Competencies</h3>
+        <div class="pill-group">
+          <span class="pill pill-amber">Reporting &amp; Dashboards</span>
+          <span class="pill pill-amber">Business Process Improvement</span>
+          <span class="pill pill-amber">Stakeholder Communication</span>
+          <span class="pill pill-amber">Research &amp; Insight Generation</span>
+          <span class="pill pill-amber">Risk Data Processing</span>
+          <span class="pill pill-amber">AI Fluency</span>
+          <span class="pill pill-amber">Cross-functional Collaboration</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Selected projects</div>
+        <h2 class="section-title">Case studies. Real problems. Real outcomes.</h2>
+      </div>
+      <p class="section-desc">Three projects demonstrating how I approach data problems — the question, the method, the findings, and the value created.</p>
+    </div>
+
+    <div class="proj-tabs reveal" role="tablist">
+      <button class="proj-tab active" onclick="showProject(0,this)" role="tab">📊 ONS Data Quality Audit</button>
+      <button class="proj-tab" onclick="showProject(1,this)" role="tab">⚓ Marine Cargo Risk</button>
+      <button class="proj-tab" onclick="showProject(2,this)" role="tab">🔍 Insurance Fraud Detection</button>
+    </div>
+
+    <!-- PROJECT 1 -->
+    <div class="proj-panel active" id="proj0">
+      <div class="case-card">
+        <div>
+          <div class="case-tags">
+            <span class="case-tag case-accent-tag">Data Governance</span>
+            <span class="case-tag">AI Readiness</span>
+            <span class="case-tag">Time Series</span>
+            <span class="case-tag">Python · Pandas · Matplotlib</span>
+            <span class="case-tag">Public Sector</span>
+          </div>
+          <div class="case-title">ONS UK Mergers &amp; Acquisitions — Data Quality &amp; Governance Audit</div>
+          <p class="case-body" style="margin-top:.6rem">Audited the ONS UK M&amp;A time series dataset (1969–2026 Q1) across five governance dimensions to determine whether it was safe for use in analytics pipelines or AI-driven workflows. Delivered a scored readiness assessment with clear conditions for safe use.</p>
+        </div>
+        <div class="case-kpis">
+          <div class="ckpi"><strong>3.8 / 5</strong><span>Overall governance score for core quarterly series</span></div>
+          <div class="ckpi"><strong>56 / 213</strong><span>Quarterly rows with reconciliation mismatches identified</span></div>
+          <div class="ckpi"><strong>118 cols</strong><span>Reviewed across domestic, inward, outward &amp; regional</span></div>
+          <div class="ckpi"><strong>5 dims</strong><span>Completeness, consistency, timeliness, continuity, schema</span></div>
+        </div>
+        <div class="case-sections">
+          <div class="cs-block">
+            <div class="sub-label">Business question</div>
+            <p style="font-size:.875rem">Can this dataset power automated analysis, forecasting, or AI workflows without introducing hidden quality risks?</p>
+          </div>
+          <div class="cs-block">
+            <div class="sub-label">Approach</div>
+            <p style="font-size:.875rem">Five-dimension audit using Python (Pandas, Matplotlib). Each dimension scored and translated into a practical AI-readiness framework with clear conditional rules.</p>
+          </div>
+          <div class="cs-block">
+            <div class="sub-label">Outcome</div>
+            <p style="font-size:.875rem">Core quarterly series rated safe for ARIMA/Prophet forecasting. Regional sub-series flagged for annual aggregation only. Three structural break risks documented.</p>
+          </div>
+          <div class="cs-block">
+            <div class="sub-label">Why it matters</div>
+            <p style="font-size:.875rem">Demonstrates ability to challenge data assumptions early, quantify risk, and protect pipelines from unreliable inputs — critical in any data or business analyst role.</p>
+          </div>
+        </div>
+        <div class="case-links">
+          <a class="case-link" href="https://github.com/mahibala9/ons-ma-data-quality-audit" target="_blank" rel="noopener">GitHub ↗</a>
+          <a class="case-link" href="https://www.kaggle.com/code/mahathisatyawada/ons-ma-data-quality-audit/notebook" target="_blank" rel="noopener">Kaggle ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 2 -->
+    <div class="proj-panel" id="proj1">
+      <div class="case-card">
+        <div>
+          <div class="case-tags">
+            <span class="case-tag case-accent-tag">Marine &amp; Cargo Insurance</span>
+            <span class="case-tag">Risk Analytics</span>
+            <span class="case-tag">Python</span>
+            <span class="case-tag">Predictive Modelling</span>
+            <span class="case-tag">Logistics</span>
+          </div>
+          <div class="case-title">Marine Cargo Delay Risk at Liverpool — Predictive Risk Analysis</div>
+          <p class="case-body" style="margin-top:.6rem">Built a structured analytical model to assess and predict delay risk in marine cargo operations at Liverpool, combining insurance domain knowledge with data-driven risk scoring and modelling techniques.</p>
+        </div>
+        <div class="case-sections">
+          <div class="cs-block">
+            <div class="sub-label">Problem</div>
+            <p style="font-size:.875rem">Cargo delay risk is difficult to quantify from raw operational data alone. The project explored how analytics could surface delay patterns and improve risk visibility for insurance decision-making.</p>
+          </div>
+          <div class="cs-block">
+            <div class="sub-label">Approach</div>
+            <p style="font-size:.875rem">Applied risk scoring methodology and predictive modelling in Python to identify and rank delay risk factors in Liverpool marine cargo operations.</p>
+          </div>
+          <div class="cs-block">
+            <div class="sub-label">Domain relevance</div>
+            <p style="font-size:.875rem">Directly aligned with my hands-on experience processing logistics and marine liability insurance policies at Pro Global — technical skills meeting real-world domain knowledge.</p>
+          </div>
+          <div class="cs-block">
+            <div class="sub-label">Value</div>
+            <p style="font-size:.875rem">Demonstrates applied technical skills in an insurance-adjacent sector, bridging academic modelling with professional domain experience.</p>
+          </div>
+        </div>
+        <div class="case-links">
+          <a class="case-link" href="https://github.com/mahibala9" target="_blank" rel="noopener">GitHub ↗</a>
+          <a class="case-link" href="https://www.kaggle.com/mahathisatyawada" target="_blank" rel="noopener">Kaggle ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 3 -->
+    <div class="proj-panel" id="proj2">
+      <div class="case-card">
+        <div>
+          <div class="case-tags">
+            <span class="case-tag case-accent-tag">Fraud Detection</span>
+            <span class="case-tag">Graph Analytics</span>
+            <span class="case-tag">R / igraph</span>
+            <span class="case-tag">Logistic Regression</span>
+            <span class="case-tag">Network Features</span>
+          </div>
+          <div class="case-title">Graph Features for Insurance Fraud Detection — Belgian Commercial Insurance</div>
+          <p class="case-body" style="margin-top:.6rem">Built a graph-based fraud detection model on a real-world Belgian commercial insurance dataset (6M+ nodes, 4.2M edges), engineering network features from a bipartite company–administrator graph to classify fraudulent underwriting claims with 72% accuracy and 87% sensitivity.</p>
+        </div>
+        <div class="case-kpis">
+          <div class="ckpi"><strong>72%</strong><span>Overall model accuracy on held-out test set</span></div>
+          <div class="ckpi"><strong>87%</strong><span>Sensitivity — fraud cases correctly identified</span></div>
+          <div class="ckpi"><strong>6M+</strong><span>Nodes processed from real Belgian insurance network</span></div>
+          <div class="ckpi"><strong>4.2M</strong><span>Edges modelled in the company–administrator graph</span></div>
+        </div>
+        <div class="case-sections">
+          <div class="cs-block">
+            <div class="sub-label">Context</div>
+            <p style="font-size:.875rem">Standard fraud detection relies on tabular features alone. This project explored whether the structure of who manages which companies — captured as a graph — adds meaningful signal for detecting underwriting fraud in Belgian commercial insurance.</p>
+          </div>
+          <div class="cs-block">
+            <div class="sub-label">Approach</div>
+            <p style="font-size:.875rem">Constructed a bipartite graph in R using igraph, linking companies to administrators via 1.9M edges. Extracted degree-based network features (e.g. number of linked administrators per company) and merged them into a logistic regression model alongside company-level attributes.</p>
+          </div>
+          <div class="cs-block">
+            <div class="sub-label">Key finding</div>
+            <p style="font-size:.875rem">Graph-derived features were statistically significant predictors of fraud — companies with more administrator connections showed lower fraud odds, suggesting shell-company structures with fewer links are a risk signal. The model achieved 87% sensitivity, correctly flagging the majority of fraudulent cases.</p>
+          </div>
+          <div class="cs-block">
+            <div class="sub-label">Why it matters</div>
+            <p style="font-size:.875rem">Combines domain knowledge of commercial insurance with advanced analytical techniques rarely applied in the field — demonstrating the ability to work with large-scale real-world data and translate network theory into actionable fraud risk signals.</p>
+          </div>
+        </div>
+        <div class="case-links">
+          <a class="case-link" href="https://www.kaggle.com/code/mahathisatyawada/graph-features-for-insurance-fraud-detection" target="_blank" rel="noopener">Kaggle Notebook ↗</a>
+          <a class="case-link" href="https://github.com/mahibala9" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience" style="background:linear-gradient(180deg,var(--c-bg) 0%,#fff 100%)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Experience</div>
+        <h2 class="section-title">From intern to specialist.</h2>
+      </div>
+      <p class="section-desc">A clear progression from early commercial and research roles into specialist data work — each role building the analytical, business, and communication foundations I bring today.</p>
+    </div>
+    <div class="tl-stack">
+
+      <div class="tl-item reveal">
+        <div class="tl-date">
+          <div class="tl-company-badge badge-teal">Pro Global</div><br>
+          Oct 2025 – Present
+        </div>
+        <div>
+          <div class="tl-role">Data Technician</div>
+          <div class="tl-co">Liverpool, United Kingdom</div>
+          <ul class="tl-bullets">
+            <li>Maintained <span class="tl-highlight">95% accuracy</span> processing risk Bordeaux records within a 5-day SLA across commercial insurance workflows.</li>
+            <li>Supported operational reporting, data validation, and tracking using Power BI, Microsoft Dynamics, Intrali, and Excel.</li>
+            <li>Worked directly with client teams to facilitate efficient case processing, address queries, and resolve data exceptions in real time.</li>
+          </ul>
+          <div class="pill-group" style="margin-top:.9rem"><span class="tool-tag">Power BI</span><span class="tool-tag">Microsoft Dynamics</span><span class="tool-tag">Intrali</span><span class="tool-tag">Excel</span><span class="tool-tag">Risk Bordeaux</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-date">
+          <div class="tl-company-badge badge-teal">Pro Global</div><br>
+          Mar 2025 – Oct 2025
+        </div>
+        <div>
+          <div class="tl-role">Assistant Data Technician</div>
+          <div class="tl-co">Liverpool, United Kingdom</div>
+          <ul class="tl-bullets">
+            <li>Maintained <span class="tl-highlight">98% data accuracy</span> processing active and inactive commercial insurance policies using Eclipse.</li>
+            <li>Handled logistics and marine liability insurance policies — ensuring specialist risk data was processed to the highest accuracy standards.</li>
+            <li>Performed systematic data validation and entry into policy records, directly supporting dependable commercial insurance administration.</li>
+          </ul>
+          <div class="pill-group" style="margin-top:.9rem"><span class="tool-tag">Eclipse</span><span class="tool-tag">Data Validation</span><span class="tool-tag">Marine Insurance</span><span class="tool-tag">Logistics</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-date">
+          <div class="tl-company-badge badge-violet">Keka HR</div><br>
+          Jun – Aug 2022
+        </div>
+        <div>
+          <div class="tl-role">Market Research Intern</div>
+          <div class="tl-co">Hyderabad, India</div>
+          <ul class="tl-bullets">
+            <li>Conducted quantitative and qualitative market research on HRMS domain trends.</li>
+            <li>Performed regular data validation and cleansing, improving database quality standards for the research function.</li>
+          </ul>
+          <div class="pill-group" style="margin-top:.9rem"><span class="tool-tag">Market Research</span><span class="tool-tag">Data Cleansing</span><span class="tool-tag">HRMS</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-date">
+          <div class="tl-company-badge badge-amber">Earlier roles</div><br>
+          2021
+        </div>
+        <div>
+          <div class="tl-role">Sales, Marketing &amp; Community roles</div>
+          <div class="tl-co">Upkey · IFortis Corporate · Unschool</div>
+          <ul class="tl-bullets">
+            <li>Tracked, measured, and reported on sales trends for team analysis and decision-making at IFortis Corporate.</li>
+            <li>Coordinated pre- and post-conference marketing support and stakeholder engagement at Upkey.</li>
+            <li>Built business development and communication skills through direct customer and community outreach.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION & CERTS -->
+<section class="section" id="education">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Education &amp; credentials</div>
+        <h2 class="section-title">Academic rigour. Continuous learning.</h2>
+      </div>
+      <p class="section-desc">A Master's in Business Analytics provides the quantitative and strategic foundation, extended continuously through professional certifications in data, AI, and digital tools.</p>
+    </div>
+    <div class="g2" style="margin-bottom:1.25rem">
+      <div class="card edu-card teal reveal">
+        <div class="lbl">2023 – 2024</div>
+        <div class="deg">MSc Business Analytics and Big Data</div>
+        <div style="color:var(--c-muted);font-size:.9rem;margin-bottom:.6rem">University of Liverpool</div>
+        <div style="font-size:.85rem;color:var(--c-muted);padding:.7rem;background:var(--c-teal-soft);border-radius:.75rem">🏆 Awarded the Vice-Chancellor's International Attainment Scholarship — merit-based tuition reduction for outstanding international students.</div>
+      </div>
+      <div class="card edu-card violet reveal">
+        <div class="lbl">2020 – 2023</div>
+        <div class="deg">Bachelor of Business Administration</div>
+        <div style="color:var(--c-muted);font-size:.9rem;margin-bottom:.6rem">KL University</div>
+        <div style="font-size:.85rem;color:var(--c-muted);padding:.7rem;background:var(--c-violet-soft);border-radius:.75rem">Foundations in business, management, marketing, and analytics. Co-organised major management events including the ARKA Management Fest.</div>
+      </div>
+    </div>
+    <div class="g2">
+      <div class="card reveal">
+        <h3>Certifications</h3>
+        <div class="cert-list">
+          <div class="cert-item"><div class="cert-dot"></div>Google Advanced Data Analytics Certificate · Google <span style="color:var(--c-faint);font-size:.75rem;margin-left:.3rem">Jun 2023</span></div>
+          <div class="cert-item"><div class="cert-dot"></div>AI Fluency: Framework &amp; Foundations · Anthropic <span style="color:var(--c-faint);font-size:.75rem;margin-left:.3rem">Apr 2026</span></div>
+          <div class="cert-item"><div class="cert-dot"></div>SAP Sales and Distribution · SEED Infotech <span style="color:var(--c-faint);font-size:.75rem;margin-left:.3rem">Sep 2022</span></div>
+          <div class="cert-item"><div class="cert-dot"></div>Corporate Strategy · University of London <span style="color:var(--c-faint);font-size:.75rem;margin-left:.3rem">Aug 2022</span></div>
+          <div class="cert-item"><div class="cert-dot"></div>Fundamentals of Digital Marketing · Google <span style="color:var(--c-faint);font-size:.75rem;margin-left:.3rem">Oct 2021</span></div>
+          <div class="cert-item"><div class="cert-dot"></div>Data Analytics with Python · MyCaptain <span style="color:var(--c-faint);font-size:.75rem;margin-left:.3rem">May 2021</span></div>
+        </div>
+      </div>
+      <div class="card reveal">
+        <h3>Awards &amp; Recognition</h3>
+        <div style="display:grid;gap:.85rem">
+          <div style="padding:.85rem;border-radius:.85rem;background:linear-gradient(135deg,rgba(217,119,6,.09),rgba(217,119,6,.03));border:1px solid rgba(217,119,6,.15)">
+            <div style="font-weight:700;font-size:.9rem;margin-bottom:.25rem">🏆 Vice-Chancellor's International Attainment Scholarship</div>
+            <div style="font-size:.83rem;color:var(--c-muted)">Merit-based tuition fee reduction for outstanding international students, University of Liverpool, 2023.</div>
+          </div>
+          <div style="padding:.85rem;border-radius:.85rem;background:linear-gradient(135deg,rgba(12,122,107,.09),rgba(12,122,107,.03));border:1px solid rgba(12,122,107,.15)">
+            <div style="font-weight:700;font-size:.9rem;margin-bottom:.25rem">📜 Letter of Appreciation — FITT IIT Delhi &amp; Samsung India</div>
+            <div style="font-size:.83rem;color:var(--c-muted)">Co-organised the Solve for Tomorrow information session. Recognised by Ashutosh Pastor, Head of Incubation, FITT IIT Delhi.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXTRAS -->
+<section class="section" style="background:linear-gradient(180deg,#fff 0%,var(--c-bg) 100%)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Beyond work</div>
+        <h2 class="section-title">Curiosity, community, craft.</h2>
+      </div>
+      <p class="section-desc">The same attention, structured thinking, and collaborative instinct I bring to data work extends into how I engage with communities, ideas, and creative disciplines.</p>
+    </div>
+    <div class="g3">
+      <div class="card extra-card reveal">
+        <div class="card-icon">🤝</div>
+        <h3>Community &amp; Volunteering</h3>
+        <ul class="extra-list">
+          <li>Tata Engage Volunteer</li>
+          <li>ARKA Management Fest Co-Organiser</li>
+          <li>Solve for Tomorrow co-host with IIT Delhi &amp; Samsung India</li>
+        </ul>
+      </div>
+      <div class="card extra-card reveal">
+        <div class="card-icon">📚</div>
+        <h3>Societies &amp; Clubs</h3>
+        <ul class="extra-list">
+          <li>University of Liverpool Photography Society</li>
+          <li>Liverpool Library Book Society</li>
+          <li>Hyderabad Book Club</li>
+        </ul>
+      </div>
+      <div class="card extra-card reveal">
+        <div class="card-icon">✍️</div>
+        <h3>Published Research</h3>
+        <ul class="extra-list">
+          <li>Research publication: Study on Psychological Stress due to Covid — demonstrates academic research capability and professional written communication.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="contact-wrap reveal">
+      <span class="eyebrow">Let's connect</span>
+      <h2 class="section-title">Ready to contribute from day one.</h2>
+      <p>I bring validated data skills, professional insurance analytics experience, and a track record of delivering accurate, structured work under real business pressure. If you are looking for a data or business analyst who hits the ground running, let's talk.</p>
+      <div class="contact-links">
+        <a class="contact-btn contact-btn-primary" href="mailto:mahibala9@gmail.com">✉ mahibala9@gmail.com</a>
+        <a class="contact-btn" href="tel:+447586407834">📞 +44 7586 407834</a>
+        <a class="contact-btn" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/mahathi-bala-satyawada-a102b2186/">in LinkedIn</a>
+        <a class="contact-btn" target="_blank" rel="noopener noreferrer" href="https://github.com/mahibala9">⌥ GitHub</a>
+        <a class="contact-btn" target="_blank" rel="noopener noreferrer" href="https://www.kaggle.com/mahathisatyawada">📊 Kaggle</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <div class="wrap closing-inner reveal">
+    <span class="eyebrow" style="margin:0 auto .75rem">A final note</span>
+    <div class="closing-text">"Good analysis is not about tools. It is about judgment, integrity, and the discipline to ask the right question before writing a single line of code."</div>
+    <p class="closing-sub">That is what I bring. A meticulous approach to data quality, a commercial instinct for what actually matters, and the communication skills to make insight land with the people who need it most.</p>
+    <div style="margin-top:1.5rem">
+      <a class="btn btn-primary" href="mailto:mahibala9@gmail.com">Start a conversation →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>© 2026 Mahathi Bala Satyawada · Data &amp; Business Analyst</div>
+    <div class="footer-links">
+      <a href="mailto:mahibala9@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/mahathi-bala-satyawada-a102b2186/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/mahibala9" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.kaggle.com/mahathisatyawada" target="_blank" rel="noopener">Kaggle</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Active nav highlight
+const sections=document.querySelectorAll('section[id],header[id]');
+const navLinks=document.querySelectorAll('.nav-links a');
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navLinks.forEach(l=>l.classList.remove('active'));
+      const a=document.querySelector('.nav-links a[href="#'+e.target.id+'"]');
+      if(a)a.classList.add('active');
+    }
+  });
+},{rootMargin:'-40% 0px -50% 0px'});
+sections.forEach(s=>io.observe(s));
+
+// Scroll reveal
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target)}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+// Project tabs
+function showProject(idx,btn){
+  document.querySelectorAll('.proj-panel').forEach((p,i)=>{
+    p.classList.toggle('active',i===idx);
+  });
+  document.querySelectorAll('.proj-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// KPI number counter animation
+function animateCounters(){
+  document.querySelectorAll('.kpi strong,.ckpi strong').forEach(el=>{
+    const text=el.textContent;
+    const num=parseFloat(text.replace(/[^0-9.]/g,''));
+    if(isNaN(num)||num>1000)return;
+    const suffix=text.replace(/[0-9.]/g,'');
+    let start=0;const dur=1200;const step=16;
+    const inc=num/(dur/step);
+    const t=setInterval(()=>{
+      start=Math.min(start+inc,num);
+      el.textContent=(Number.isInteger(num)?Math.round(start):start.toFixed(1))+suffix;
+      if(start>=num)clearInterval(t);
+    },step);
+  });
+}
+const heroIo=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){animateCounters();heroIo.disconnect()}});
+},{threshold:.3});
+const kpiEl=document.querySelector('.kpi-strip');
+if(kpiEl)heroIo.observe(kpiEl);
+</script>
+</body>
+</html>
